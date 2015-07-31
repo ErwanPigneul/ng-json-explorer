@@ -5,6 +5,7 @@ angular.module('ngJsonExplorer', [])
 		restrict: 'E',
 		scope: {
 			data: '=',
+			jsonData: '=',
 			url: '=',
 			collapsed: '=',
 			sortBy: '='
@@ -189,6 +190,12 @@ angular.module('ngJsonExplorer', [])
 			});
 
 			scope.$watch('data', function (val) {
+				if (val) {
+					parse(val);
+				}
+			});
+
+			scope.$watch('jsonData', function (val) {
 				if (val) {
 					parse(val);
 				}
